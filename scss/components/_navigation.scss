@@ -1,0 +1,117 @@
+#nav {
+  position: absolute;
+  top: 84px;
+  right: -7px;
+  transition: all 0.3s ease;
+  text-align: right;
+  @include font(14, 18, 400);
+  z-index: 10;
+  max-width: 170px;
+  display: none;
+  pointer-events: none;
+  @include media('>=tablet') {
+    display: block;
+    top: 30px;
+  }
+
+  @include media('>=desktop') {
+    font-size: 16px;
+    top: 84px;
+  }
+
+  &.light {
+
+    a {
+      &.active,
+      &.anchor-active {
+        color: $black;
+        &:after {
+          background: rgba($black, 1);
+        }
+      }
+      &:hover {
+        color: $black;
+
+        &:after {
+          background: rgba($black, 1);
+        }
+      }
+    }
+  }
+
+  ul {
+    @extend %listreset;
+
+    > li {
+      padding: 7px 0;
+    }
+  }
+
+  a {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    text-align: right;
+    color: rgba($black, 0.5);
+    position: relative;
+    @include pseudo-element(before, 0, 7px, 0, auto);
+    &:after {
+      content: '';
+      border-radius: 100%;
+      @include size(18px);
+      background: rgba($black, 0.5);
+      align-self: flex-start;
+      transition: all 0.3s ease;
+      pointer-events: auto;
+    }
+
+    &:before {
+      width: 25px;
+      pointer-events: auto;
+      transition: all 0.3s ease;
+    }
+
+    &.active,
+    &.anchor-active {
+      color: $white;
+      &:after {
+        background: rgba($white, 1);
+      }
+
+      .text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.closest {
+      .text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:hover {
+      color: $white;
+
+      &:after {
+        background: rgba($white, 1);
+      }
+
+      .text {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .text {
+      transition: all 0.3s ease;
+      width: calc(100% - 18px);
+      flex-grow: 1;
+      padding: 0 8px 0 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: auto;
+    }
+  }
+}

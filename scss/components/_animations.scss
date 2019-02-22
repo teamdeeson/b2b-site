@@ -1,0 +1,90 @@
+@include keyframes(btn-l2r) {
+  0% {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  50% {
+    left: auto;
+    right: 0;
+    width: 0;
+  }
+  50.0001% {
+    left: 0;
+    right: auto;
+    width: 0;
+  }
+  100% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+@include keyframes(btn-l2r-hover) {
+  0% {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  50% {
+    left: auto;
+    right: 0;
+    width: 0;
+  }
+  50.0001% {
+    left: 0;
+    right: auto;
+    width: 0;
+  }
+  100% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+@include keyframes(plus) {
+  0% {
+    left: 0;
+    right: auto;
+    width: 0;
+  }
+  50% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+  50.0001% {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: auto;
+    right: 0;
+    width: 0;
+  }
+}
+
+@include keyframes(bounceIn) {
+  from, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    transform: scale3d(0.1, 0.1, 0.1);
+  }
+
+  60% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  } 
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

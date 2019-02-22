@@ -1,0 +1,82 @@
+#footer {
+  @include bg-color(before, $off-white);
+  position: relative;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: $gray;
+  @include font(12, 20, 500);
+
+  @include media('>=tablet') {
+    @include fontsize(16, 20);
+    color: $blue;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include media('>=desktop') {
+    @include fontsize(18, 22);
+    padding-top: 83px;
+    padding-bottom: 92px;
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: $green;
+    }
+  }
+
+  .logo {
+    width: 130px;
+      overflow: hidden;
+    margin: 0 auto 20px;
+    @include media('>=tablet') {
+      width: 200px;
+      margin-bottom: 33px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    svg {
+      width: 100%;
+      height: 27px;
+      @include media('>=tablet') {
+        height: 41px;
+      }
+      .st0{ 
+        fill:$gray;
+        @include media('>=tablet') {
+          fill:$blue;
+        }
+      }
+    }
+  }
+}
+
+.footer-nav {
+  @extend %listreset;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  justify-content: center;
+  @include media('<phone') {
+    margin: 0 -8px;
+  }
+
+  address {
+    font-style: normal;
+    margin: 0;
+  }
+
+  li {
+    padding: 0 2px;
+    @include media('>=tablet') {
+      padding: 2px 6px;
+    }
+  }
+}

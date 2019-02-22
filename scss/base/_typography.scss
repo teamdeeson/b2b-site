@@ -1,0 +1,93 @@
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+	font-family: $headings-font-family;
+	font-weight: bold;
+	margin: 0 0 0.5em;
+	color: $headings-color;
+	a {
+    color: inherit;
+
+    /* &:hover {
+      color: $indigo;
+    } */
+  }
+}
+
+h1, .h1 {
+	font-size: $h1-font-size;
+	line-height: 50px;
+	margin: 0 0 20px;
+	@include media('>=phone') {
+		@include fontsize(60, 64);
+		margin: 0 0 25px;
+	}
+	@include media('>=tablet') {
+		@include fontsize(80, 100);
+		margin: 0 0 36px;
+	}
+	@include media('>=desktop') {
+		font-size: 100px;
+	}
+}
+
+h2, .h2 {
+	font-size: $h2-font-size;
+	line-height: 44px;
+	margin: 0 0 31px;
+	@include media('>=phone') {
+		@include fontsize(42, 48);
+	}
+	@include media('>=tablet') {
+		@include fontsize(50, 64);
+		margin: 0 0 37px;
+	}
+	@include media('>=desktop') {
+		margin: 0 0 23px;
+		font-size: 60px;
+	}
+}
+
+h3, .h3 {
+	font-size: $h3-font-size;
+	line-height: 22px;
+	@include media('>=tablet') {
+		@include fontsize(20, 24);
+	}
+	@include media('>=desktop') {
+		@include fontsize(40, 44);
+	}
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+}
+
+h5, .h5 {
+	font-size: $h5-font-size;
+}
+
+h6, .h6 {
+	font-size: $h6-font-size;
+}
+
+p {
+	margin: 0 0 1em;
+}
+
+a {
+	color: $base-link-color;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		outline: none;
+	}
+}

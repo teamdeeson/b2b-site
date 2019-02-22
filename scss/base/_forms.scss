@@ -1,0 +1,442 @@
+// forms
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='url'],
+input[type='date'],
+textarea,
+.form-control {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  box-sizing: border-box;
+  border: 2px solid $form-element-border-color;
+  padding: $form-element-padding;
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  outline: none; 
+  box-shadow: none;
+  @include font(16, 20, 700);
+  color: $white;
+  background: $dark-blue;
+  transition: all 0.3s ease;
+
+  @include media('>=tablet') {
+    @include fontsize(18, 22);
+    padding: 17px 10px;
+  }
+
+  @include media('>=desktop') {
+    font-size: 19px;
+  }
+
+  .theme-green & {
+    background: rgba($green-darker, 0.54);
+  }
+
+  .theme-red & {
+    background: rgba($red-03, 0.54);
+    @include media('>=tablet') {
+      background: $red-02;
+    }
+    @include media('>=desktop') {
+      background: $red-03;
+    }
+  }
+
+  .input-error & {
+    border-color: $red-darker;
+  }
+
+  &:focus {
+    border-color: $form-element-focus-border-color;
+  }
+
+  @include placeholder {
+    color: $placeholder-color;
+  }
+}
+
+select {
+  -webkit-border-radius: 0;
+}
+
+textarea {
+  resize: vertical;
+  vertical-align: top;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  .input-group {
+    width: 100%;
+    margin: 0 0 22px;
+    @include media('>=tablet') {
+      margin: 0 0 9px;
+    }
+    @include media('>=desktop') {
+      margin: 0 0 18px;
+    }
+    &:last-child {
+      @include media('>=desktop') {
+        margin: 0;
+      }
+    }
+
+    &.btn-holder {
+      padding-top: 9px;
+
+      @include media('>=tablet') {
+        padding-top: 40px;
+      }
+
+      @include media('>=desktop') {
+        padding-top: 0;
+      }
+    }
+  }
+
+  label {
+    display: block;
+    margin: 0 0 8px;
+    @include media('>=tablet') {
+      margin: 0 0 11px;
+    }
+
+    @include media('>=desktop') {
+      margin: 0 0 9px;
+    }
+  }
+}
+
+label {
+  display: inline-block;
+  vertical-align: top;
+  @include font(16, 20, 400);
+  transition: all 0.3s ease;
+
+  @include media('>=tablet' , '<desktop') {
+    @include fontsize(14, 18);
+  }
+
+  .input-error & {
+    color: $red-darker;
+  }
+}
+
+.form {
+
+  &.form-success {
+
+    .form-content {
+      opacity: 0.17;
+      pointer-events: none;
+    }
+
+    .alert-msg {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translate(-50%, -50%);
+    }
+  }
+
+  .theme-green &,
+  &.theme-green {
+
+    .alert-msg {
+      color: $green;
+    }
+  }
+
+  .theme-red &,
+  &.theme-red {
+    
+    .alert-msg {
+      color: $red;
+    }
+  }
+
+  .alert-msg {
+    @include pseudo-element(before, 0, auto, auto, 0);
+    transition: all 0.2s ease;
+    transform-origin: 0 0;
+    position: absolute;
+    padding: 40px 10px;
+    top: 50%;
+    left: 50%;
+    transform: scale(0.2) translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden; 
+    max-width: 600px;
+    z-index: 1;
+    color: $blue-01;
+    z-index: 1;
+    width: 100%;
+    @include media('>=tablet' , '<desktop') {
+      text-align: center;
+      padding: 80px 40px;
+    }
+    @include media('>=desktop') {
+      padding: 90px 10px;
+      max-width: 650px;
+      @include fontsize(22, 34);
+    }
+
+    &:before {
+      background: $white;
+      border-radius: 100%;
+      z-index: -1;
+      @include size(200vw, 507px);
+      left: 50%;
+      top: -40px;
+      transform: translate(-50%, 0);
+      min-width: 320px;
+      @include media('>=tablet') {
+        @include size(693px);
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      @include media('>=desktop') {
+        @include size(776px);
+      }
+    }
+
+    h3 {
+      @include fontsize(29, 33);
+      margin: 0 0 50px;
+      @include media('>=tablet') {
+        @include fontsize(43, 54);
+        margin: 0 0 40px;
+      }
+      @include media('>=desktop') {
+        @include fontsize(60, 64);
+      }
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+  }
+
+  .form-content {
+    transition: all 0.2s ease;
+  }
+
+  .note-text {
+    @include fontsize(14, 17);
+    padding: 15px 0 0;
+    display: none;
+
+    @include media('>=tablet') {
+      padding: 24px 0 0;
+      display: block;
+    }
+
+    @include media('>=desktop') {
+      padding: 62px 0 0;
+    }
+  }
+}
+
+
+.report-form {
+  position: relative;
+  &.form-success {
+    .form-content {
+      opacity: 0;
+    }
+    .alert-msg {
+      transform: scale(1);
+      @include media('>=tablet' , '<desktop') {
+        transform: scale(1) translate(-50%, 0);
+      }
+    }
+  }
+  &.theme-green, 
+  .theme-green & {
+    .alert-msg {
+      color: $green-02;
+    }
+  }
+  .alert-msg {
+    text-align: left;
+    transform-origin: 0 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0.2);
+    @include media('>=tablet' , '<desktop') {
+      text-align: center;
+      top: 80px;
+      left: 50%;
+    }
+
+    @include media('>=desktop') {
+      padding: 90px 40px;
+      max-width: 600px;
+      line-height: 1.6;
+      font-size: 20px;
+    }
+
+    &:before {
+      @include size(200vw, 488px);
+      left: 50%;
+      transform: translateX(-50%);
+      top: -20px;
+      margin: 0 0 0 -50px;
+      @include media('>=tablet', '<desktop') {
+        @include size(604px, 600px);
+        top: -80px;
+        margin: 0;
+      }
+      @include media('>=desktop') {
+        @include size(1148px);
+        left: -350px;
+        top: -40px;
+        transform: translateX(0);
+      }
+    }
+
+    h3 {
+      @include fontsize(29, 33);
+      margin: 0 0 50px;
+      @include media('>=tablet') {
+        @include fontsize(43, 54);
+        margin: 0 0 40px;
+      }
+    }
+  }
+
+  .note-text {
+    @include media('>=desktop') {
+      padding: 49px 0 0; 
+      @include fontsize(15, 18);
+    }
+  }
+
+  .form-group {
+
+    .input-group {
+
+      @include media('<tablet') {
+        margin: 0 0 9px;
+      }
+
+      &.btn-holder {
+        padding-top: 30px;
+        @include media('>=tablet') {
+          padding-top: 51px;
+        }
+        @include media('>=desktop') {
+          padding-top: 0;
+        }
+      }
+    }
+
+    label {
+      @include media('<tablet') {
+        margin: 0 0 12px;
+      }
+    }
+  }
+}
+
+.download-form {
+  position: relative;
+  padding-top: 46px;
+  padding-bottom: 35px;
+  @include bg-color(before, $blue);
+  color: $white;
+  min-height: 100vh;
+
+  @include media('>=tablet') {
+    padding-top: 90px;
+    padding-bottom: 50px;
+  }
+
+  @include media('>=desktop') {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  @include media('>=widescreen') {
+    padding-top: 183px;
+  }
+
+  &.theme-green {
+    &:before {
+      background: $green;
+    }
+  }
+
+  &.theme-red {
+    &:before {
+      background: $red;
+    }
+  }
+
+  .form-content {
+    width: 100%;
+  }
+
+  .section-header {
+    overflow: hidden;
+    margin: 0 0 5px;
+    @include media('>=tablet') {
+      max-width: 510px;
+      margin: 0 0 13px;
+    }
+    @include media('>=desktop') {
+      max-width: 620px;
+      margin: 0 0 4px;
+    }
+  }
+
+  h2 {
+    margin: 0 0 46px;
+
+    @include media('>=tablet') {
+      margin: 0 0 39px;
+    }
+
+    @include media('>=desktop') {
+      margin: 0 0 36px;
+    }
+
+    @include media('<tablet') {
+      line-height: 54px;
+    }
+  }
+
+  .flex-row {
+    .col {
+      &:nth-child(odd) {
+        @include media('>=widescreen') {
+          padding-right: 86px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.popup-holder {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+}
+
+
+.fancybox-slide--html {
+  min-width: 320px;
+  padding: 7px;
+  @include media('>=tablet') {
+    padding: 62px;
+  }
+  .fancybox-button.fancybox-close-small {
+    top: 13px;
+    right: 13px;
+    outline: none;
+    padding: 2px;
+    opacity: 1;
+    color: $white;
+
+    @include media('>=desktop') {
+      top: 92px;
+      right: 37px;
+      padding: 0;
+    }
+
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+}
+
+.fancybox-bg {
+  background: $gray-light;
+
+  .theme-green &{
+    background: $green;
+    @include media('>=desktop') {
+      background: $green-01;
+    }
+  }
+
+  .theme-red & {
+    background: $red;
+    @include media('>=desktop') {
+      background: $red-01;
+    }
+  }
+}
+
+.popup {
+  width: 100%;
+  max-width: 1246px;
+  background: $blue;
+  color: $white;
+  min-height: 675px;
+  overflow: hidden;
+  padding: 70px 10px 20px;
+  @include media('>=tablet') {
+    padding: 104px 74px 51px;
+  }
+
+  @include media('>=desktop') {
+    padding: 81px 108px 40px;
+  }
+
+  .theme-green & {
+    background: $green-01;
+    @include media('>=desktop') {
+      background: $green;
+    }
+  }
+
+  .theme-red & {
+    background: $red-01;
+    @include media('>=desktop') {
+      background: $red;
+    }
+  }
+
+  h2 {
+    margin: 0 0 20px;
+
+    @include media('>=tablet') {
+      margin: 0 0 39px;
+      letter-spacing: -0.5px;
+    }
+
+    @include media('>=desktop') {
+      margin: 0 0 36px;
+    }
+  }
+
+  .popup-header {
+    overflow: hidden;
+    margin: 0 0 5px;
+    @include media('>=tablet') {
+      margin: 0 0 13px;
+    }
+
+    @include media('>=desktop') {
+      max-width: 52%;
+      margin: 0 0 5px;
+    }
+  }
+}
